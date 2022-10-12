@@ -7,11 +7,49 @@ export const ProductsContainer = styled.div`
 `
 
 export const Product = styled.div`
-  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
-  img{
-    width: 64px;
-    height: auto;
+  padding: 2.5rem;
+`
+
+export const Purchase = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  font-family: 'Roboto';
+  line-height: 130%;
+`
+
+export const ValuesDescription = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  p{
+    font-size: .875rem;
+    color: ${(props) => props.theme['base-text']};
+  }
+
+  strong{
+    font-size: 1.25rem;
+    color: ${(props) => props.theme['base-subtitle']};
   }
 `
 
+export const PurchaseButton = styled.button`
+  width: 100%;
+  padding: .75rem;
+  margin-top: 1.5rem;
+
+  border-radius: 6px;
+  border: none;
+
+  font-size: .875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  background-color: ${(props) => props.theme['yellow']};
+  color: ${(props) => props.theme['white']};
+` 
