@@ -1,5 +1,7 @@
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
+import { useContext } from "react";
 import { useState } from "react";
+import { CartContext } from "../../../../context/CartContext";
 import { coffees } from "../../../../data";
 import { formatMoney } from "../formatMoney";
 import {
@@ -14,7 +16,7 @@ import {
   Title,
 } from "./styles";
 
-export interface CoffeeDataProps {
+export interface Coffee {
   id: number;
   coffeeImg: string;
   tag: string[];
@@ -24,13 +26,15 @@ export interface CoffeeDataProps {
 }
 
 interface CoffeeProps {
-  coffee: CoffeeDataProps;
+  coffee: Coffee;
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
   const formattedMoney = formatMoney(coffee.price);
 
   const [amount, setAmount] = useState(1);
+
+  const { addItemToCart } = useContext(CartContext);
 
   function addAmount() {
     setAmount((state) => {
@@ -46,6 +50,15 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
         return state;
       }
     });
+  }
+
+  function handleAddItemToCart() {
+    const itemToAdd = {
+      ...coffee,
+      amount,
+    };
+
+    addItemToCart(itemToAdd);
   }
 
   return (
@@ -70,21 +83,20 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
               R$ <strong>{formattedMoney}</strong>
             </p>
 
-            <div>
-              <Counter>
-                <ButtonCounter onClick={reduceAmount}>
-                  <Minus weight="fill" />
-                </ButtonCounter>
-                <span>{amount}</span>
-                <ButtonCounter onClick={addAmount}>
-                  <Plus weight="fill" />
-                </ButtonCounter>
-              </Counter>
+            <Counter>
+              <ButtonCounter onClick={reduceAmount}>
+                <Minus weight="fill" />
+              </ButtonCounter>
+              {/* <span>{amount}</span> */}
+              <input type="number" readOnly value={amount} />
+              <ButtonCounter onClick={addAmount}>
+                <Plus weight="fill" />
+              </ButtonCounter>
+            </Counter>
 
-              <Cart>
-                <ShoppingCart size={22} weight="fill" />
-              </Cart>
-            </div>
+            <Cart onClick={handleAddItemToCart}>
+              <ShoppingCart size={22} weight="fill" />
+            </Cart>
           </Buy>
         </Infos>
       </Item>

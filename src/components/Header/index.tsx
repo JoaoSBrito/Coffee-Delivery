@@ -23,7 +23,7 @@ export function Header() {
           <p>Teixeira de Freitas,BA</p>
         </Location>
 
-        <NavLink to="/">
+        <NavLink to="/checkout">
           <Cart>
             <ShoppingCart size={22} weight="fill" color="#C47F17" />
             <ProductsAmount>3</ProductsAmount>

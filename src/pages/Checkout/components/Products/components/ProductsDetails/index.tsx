@@ -1,4 +1,6 @@
 import { Minus, Plus, Trash } from "phosphor-react";
+import { CartItem } from "../../../../../../context/CartContext";
+import { formatMoney } from "../../../../../Home/components/formatMoney";
 import {
   ButtonCounter,
   Counter,
@@ -9,20 +11,26 @@ import {
   RemoveButton,
 } from "./styles";
 
-export function ProductsDetails() {
+interface CoffeeCartProps {
+  coffee: CartItem;
+}
+
+export function ProductsDetails({ coffee }: CoffeeCartProps) {
+  const coffeeTotal = coffee.price * coffee.amount;
+  const formattedPrice = formatMoney(coffeeTotal);
   return (
     <Infos>
-      <img src="src/assets/coffee/Tradicional.png" alt="" />
+      <img src={coffee.coffeeImg} alt="" />
 
       <Details>
-        <p>Expresso Tradicional</p>
+        <p>{coffee.title}</p>
 
         <DetailsButtons>
           <Counter>
             <ButtonCounter>
               <Minus weight="fill" />
             </ButtonCounter>
-            <span>1</span>
+            <span>{coffee.amount}</span>
             <ButtonCounter>
               <Plus weight="fill" />
             </ButtonCounter>
@@ -35,7 +43,7 @@ export function ProductsDetails() {
         </DetailsButtons>
       </Details>
 
-      <ProductValue>R$9,90</ProductValue>
+      <ProductValue>R$ {formattedPrice}</ProductValue>
     </Infos>
   );
 }

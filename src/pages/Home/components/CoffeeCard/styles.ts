@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  max-width: 16rem;
+  /* max-width: 16rem; */
   max-height: 19.4rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border-radius: 6px 36px 6px 36px;
   background-color: ${props => props.theme['base-card']};
@@ -62,6 +66,11 @@ export const Infos = styled.div`
 `
 
 export const Title = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+max-width: 80%;
 
   h1{
     font-family: 'Baloo 2', sans-serif;
@@ -81,13 +90,8 @@ export const Title = styled.div`
 export const Buy = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.4rem;
-
-  >div{
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-  }
 
 p{
   font-size: .875rem;
@@ -106,32 +110,52 @@ strong{
 export const Counter = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   border: none;
   padding: .5rem;
-  gap: .5rem;
   border-radius: 6px;
+  width: 4.5rem;
 
   background-color: ${props => props.theme['base-button']};
-  color: ${props => props.theme['base-title']};
-  font-weight: bold;
+
+  input {
+    text-align: center;
+    width: 100%;
+    background: none;
+    border: none;
+    color: ${props => props.theme['base-title']};
+    font-size: 1rem;
+    margin-left: .75rem;
+    
+    &:focus {
+      outline: none;
+    }
+  }
 `
 
 export const ButtonCounter = styled.button`
-  display: flex;
-  align-items: center;
+  width: 0.875rem;
+  height: 0.875rem;
   border: none;
   cursor: pointer;
 
   color: ${props => props.theme['purple']};
   background-color: ${props => props.theme['base-button']};
+
+  :hover {
+    color: ${props => props.theme['purple-dark']};
+  }
 `
 
 export const Cart = styled.button`
   display: flex;
   align-items: center;
+  justify-content: center;
   border: none;
   padding: .5rem;
   border-radius: 6px;
+  cursor: pointer;
 
   background-color: ${props => props.theme['purple-dark']};
   color: ${props => props.theme['white']};
