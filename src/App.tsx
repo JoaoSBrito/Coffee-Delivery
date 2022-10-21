@@ -4,15 +4,18 @@ import { ThemeProvider } from "styled-components";
 
 import { BrowserRouter } from "react-router-dom";
 import { Router } from "./components/Router";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 function App() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
-      <GlobalStyle />
-    </ThemeProvider>
+    <ShoppingCartProvider>
+      <ThemeProvider theme={defaultTheme}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+        <GlobalStyle />
+      </ThemeProvider>
+    </ShoppingCartProvider>
   );
 }
 

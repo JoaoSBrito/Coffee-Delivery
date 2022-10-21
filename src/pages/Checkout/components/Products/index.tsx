@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { CartContext } from "../../../../context/CartContext";
+import { useShoppingCart } from "../../../../context/ShoppingCartContext";
+// import { CartContext } from "../../../../context/CartContext";
 import { ProductsDetails } from "./components/ProductsDetails";
 import {
   Product,
@@ -10,7 +11,7 @@ import {
 } from "./styles";
 
 export function Products() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems } = useShoppingCart();
   return (
     <ProductsContainer>
       <Product>

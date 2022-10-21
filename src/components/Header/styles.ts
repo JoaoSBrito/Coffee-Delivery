@@ -71,4 +71,5 @@ export const ProductsAmount = styled.span`
   background-color: ${props => props.theme['yellow-dark']};
   color: ${props => props.theme['white']};
   border-radius: 100%;
+
 `

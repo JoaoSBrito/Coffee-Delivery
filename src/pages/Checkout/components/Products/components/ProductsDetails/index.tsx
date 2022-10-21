@@ -1,5 +1,7 @@
 import { Minus, Plus, Trash } from "phosphor-react";
-import { CartItem } from "../../../../../../context/CartContext";
+import { CartItem } from "../../../../../../context/ShoppingCartContext";
+import { Coffee } from "../../../../../Home/components/CoffeeCard";
+// import { CartItem } from "../../../../../../context/CartContext";
 import { formatMoney } from "../../../../../Home/components/formatMoney";
 import {
   ButtonCounter,
@@ -12,11 +14,12 @@ import {
 } from "./styles";
 
 interface CoffeeCartProps {
-  coffee: CartItem;
+  coffee: Coffee;
+  cartItem?: CartItem;
 }
 
-export function ProductsDetails({ coffee }: CoffeeCartProps) {
-  const coffeeTotal = coffee.price * coffee.amount;
+export function ProductsDetails({ coffee, cartItem }: CoffeeCartProps) {
+  const coffeeTotal = coffee.price * cartItem.amount;
   const formattedPrice = formatMoney(coffeeTotal);
   return (
     <Infos>
@@ -30,7 +33,7 @@ export function ProductsDetails({ coffee }: CoffeeCartProps) {
             <ButtonCounter>
               <Minus weight="fill" />
             </ButtonCounter>
-            <span>{coffee.amount}</span>
+            <span>{cartItem.amount}</span>
             <ButtonCounter>
               <Plus weight="fill" />
             </ButtonCounter>

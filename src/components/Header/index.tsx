@@ -9,8 +9,11 @@ import {
 import Logo from "../../assets/Logo.png";
 import { MapPin, ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
+import { useShoppingCart } from "../../context/ShoppingCartContext";
 
 export function Header() {
+  const { cartTotalAmount } = useShoppingCart();
+
   return (
     <HeaderContainer>
       <NavLink to="/">
@@ -26,7 +29,9 @@ export function Header() {
         <NavLink to="/checkout">
           <Cart>
             <ShoppingCart size={22} weight="fill" color="#C47F17" />
-            <ProductsAmount>3</ProductsAmount>
+            {cartTotalAmount ? (
+              <ProductsAmount>{cartTotalAmount}</ProductsAmount>
+            ) : null}
           </Cart>
         </NavLink>
       </Actions>

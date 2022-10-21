@@ -1,8 +1,8 @@
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
-import { useContext } from "react";
-import { useState } from "react";
-import { CartContext } from "../../../../context/CartContext";
-import { coffees } from "../../../../data";
+// import { useContext } from "react";
+// import { useState } from "react";
+import { useShoppingCart } from "../../../../context/ShoppingCartContext";
+// import { coffees } from "../../../../data";
 import { formatMoney } from "../formatMoney";
 import {
   ButtonCounter,
@@ -32,34 +32,10 @@ interface CoffeeProps {
 export function CoffeeCard({ coffee }: CoffeeProps) {
   const formattedMoney = formatMoney(coffee.price);
 
-  const [amount, setAmount] = useState(1);
+  const { decreaseAmount, getItemsAmount, increaseAmount, addedFromCart } =
+    useShoppingCart();
 
-  const { addItemToCart } = useContext(CartContext);
-
-  function addAmount() {
-    setAmount((state) => {
-      return state + 1;
-    });
-  }
-
-  function reduceAmount() {
-    setAmount((state) => {
-      if (state > 1) {
-        return state - 1;
-      } else {
-        return state;
-      }
-    });
-  }
-
-  function handleAddItemToCart() {
-    const itemToAdd = {
-      ...coffee,
-      amount,
-    };
-
-    addItemToCart(itemToAdd);
-  }
+  const amount = getItemsAmount(coffee.id);
 
   return (
     <CardContainer>
@@ -84,17 +60,21 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
             </p>
 
             <Counter>
-              <ButtonCounter onClick={reduceAmount}>
+              <ButtonCounter onClick={() => decreaseAmount(coffee.id)}>
                 <Minus weight="fill" />
               </ButtonCounter>
               {/* <span>{amount}</span> */}
               <input type="number" readOnly value={amount} />
-              <ButtonCounter onClick={addAmount}>
+              <ButtonCounter onClick={() => increaseAmount(coffee.id)}>
                 <Plus weight="fill" />
               </ButtonCounter>
             </Counter>
 
-            <Cart onClick={handleAddItemToCart}>
+            <Cart
+              onClick={() =>
+                addedFromCart(coffee.id)
+              } /* onClick={handleAddItemToCart} */
+            >
               <ShoppingCart size={22} weight="fill" />
             </Cart>
           </Buy>
