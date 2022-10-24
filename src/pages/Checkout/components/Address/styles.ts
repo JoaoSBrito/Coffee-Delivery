@@ -77,3 +77,10 @@ export const FormInfos = styled.div`
         grid-area: uf;
     }
 `
+
+export const RightText = styled.p`
+   font-size: 0.75rem;
+   margin-right: 0.75rem;
+   font-style: italic;
+   color: ${( props ) => props.theme["base-label"]};
+ `

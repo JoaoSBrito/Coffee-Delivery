@@ -1,7 +1,11 @@
 import { Minus, Plus, Trash } from "phosphor-react";
-import { CartItem } from "../../../../../../context/ShoppingCartContext";
+import {
+  CartItem,
+  useShoppingCart,
+} from "../../../../../../context/ShoppingCartContext";
+import { coffees } from "../../../../../../data";
+
 import { Coffee } from "../../../../../Home/components/CoffeeCard";
-// import { CartItem } from "../../../../../../context/CartContext";
 import { formatMoney } from "../../../../../Home/components/formatMoney";
 import {
   ButtonCounter,
@@ -14,32 +18,36 @@ import {
 } from "./styles";
 
 interface CoffeeCartProps {
-  coffee: Coffee;
-  cartItem?: CartItem;
+  id: number;
+  amount: number;
 }
 
-export function ProductsDetails({ coffee, cartItem }: CoffeeCartProps) {
-  const coffeeTotal = coffee.price * cartItem.amount;
-  const formattedPrice = formatMoney(coffeeTotal);
+export function ProductsDetails({ id, amount }: CoffeeCartProps) {
+  const item = coffees.find((i) => i.id === id);
+  if (item == null) return null;
+
+  const formattedPrice = formatMoney(item.price * amount);
+
+  const { decreaseAmount, increaseAmount, removeFromCart } = useShoppingCart();
   return (
     <Infos>
-      <img src={coffee.coffeeImg} alt="" />
+      <img src={item.coffeeImg} alt="" />
 
       <Details>
-        <p>{coffee.title}</p>
+        <p>{item.title}</p>
 
         <DetailsButtons>
           <Counter>
-            <ButtonCounter>
+            <ButtonCounter onClick={() => decreaseAmount(item.id)}>
               <Minus weight="fill" />
             </ButtonCounter>
-            <span>{cartItem.amount}</span>
-            <ButtonCounter>
+            {amount}
+            <ButtonCounter onClick={() => increaseAmount(item.id)}>
               <Plus weight="fill" />
             </ButtonCounter>
           </Counter>
 
-          <RemoveButton>
+          <RemoveButton onClick={() => removeFromCart(item.id)}>
             <Trash />
             <p>remover</p>
           </RemoveButton>

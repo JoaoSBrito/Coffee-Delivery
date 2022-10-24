@@ -35,7 +35,7 @@ export const PaymentMethods = styled.div`
   gap: .75rem;
 `
 
-export const PaymentMethod = styled.button`
+export const PaymentMethod = styled.input`
   margin-top: 2rem;
   padding:1rem;
 

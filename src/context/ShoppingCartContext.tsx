@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { Coffee } from "../pages/Home/components/CoffeeCard";
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
 
@@ -20,12 +21,18 @@ type ShoppingCartContext = {
   increaseAmount: (id: number) => void;
   decreaseAmount: (id: number) => void;
   addedFromCart: (id: number) => void;
+  removeFromCart: (id: number) => void;
+  cleanCart: () => void;
   cartTotalAmount: number;
   cartItems: CartItem[];
 };
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  function cleanCart() {
+    setCartItems([]);
+  }
 
   function getItemsAmount(id: number) {
     return cartItems.find((item) => item.id === id)?.amount || 1;
@@ -68,7 +75,15 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       return currentItems.filter((item) => item.id === id);
     });
 
-    console.log("item added");
+    // console.log("item added");
+  }
+
+  function removeFromCart(id: number) {
+    setCartItems((currentItems) => {
+      return currentItems.filter((item) => item.id !== id);
+    });
+
+    // console.log("item added");
   }
 
   const cartTotalAmount = cartItems.reduce(
@@ -85,6 +100,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         addedFromCart,
         cartItems,
         cartTotalAmount,
+        removeFromCart,
+        cleanCart,
       }}
     >
       {children}

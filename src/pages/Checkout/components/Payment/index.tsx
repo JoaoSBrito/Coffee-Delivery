@@ -5,8 +5,31 @@ import {
   PaymentMethod,
   PaymentMethods,
 } from "./styles";
+import { useFormContext } from "react-hook-form";
+
+export const paymentMethods = {
+  credit: {
+    label: "Cartão de Crédito",
+    icon: <CreditCard size={16} />,
+  },
+  debit: {
+    label: "Cartão de Débito",
+    icon: <Bank size={16} />,
+  },
+  money: {
+    label: "Dinheiro",
+    icon: <Money size={16} />,
+  },
+};
 
 export function Payment() {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  const paymentMethodError = errors?.paymentMethod
+    ?.message as unknown as string;
   return (
     <PaymentContainer>
       <PaymentHeader>
@@ -20,17 +43,17 @@ export function Payment() {
       </PaymentHeader>
 
       <PaymentMethods>
-        <PaymentMethod>
+        <PaymentMethod idtype="radio">
           <CreditCard size={16} />
-          <p>cartão de credito</p>
+          <label>cartão de credito</p>
         </PaymentMethod>
 
-        <PaymentMethod>
+        <PaymentMethod type="radio">
           <Bank size={16} />
           <p>cartão de debito</p>
         </PaymentMethod>
 
-        <PaymentMethod>
+        <PaymentMethod type="radio">
           <Money size={16} />
           <p>Dinheiro</p>
         </PaymentMethod>

@@ -1,7 +1,10 @@
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 // import { useContext } from "react";
 // import { useState } from "react";
-import { useShoppingCart } from "../../../../context/ShoppingCartContext";
+import {
+  CartItem,
+  useShoppingCart,
+} from "../../../../context/ShoppingCartContext";
 // import { coffees } from "../../../../data";
 import { formatMoney } from "../formatMoney";
 import {
@@ -23,6 +26,11 @@ export interface Coffee {
   title: string;
   subtitle: string;
   price: number;
+  amount: number;
+}
+
+export interface cartItems extends Coffee {
+  cartItems: CartItem;
 }
 
 interface CoffeeProps {

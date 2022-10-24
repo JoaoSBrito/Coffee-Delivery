@@ -37,7 +37,23 @@ height: auto;
 background-color: ${props => props.theme['base-button']};
 color: ${props => props.theme['base-title']};
 font-weight: bold;
+
+input {
+    text-align: center;
+    width: 100%;
+    background: none;
+    border: none;
+    color: ${props => props.theme['base-title']};
+    font-size: 1rem;
+    margin-left: .75rem;
+    
+    &:focus {
+      outline: none;
+    }
+  }
 `
+
+
 
 export const ButtonCounter = styled.button`
 display: flex;
@@ -57,6 +73,7 @@ border: none;
 padding: .5rem;
 gap: .5rem;
 border-radius: 6px;
+cursor: pointer;
 
 background-color: ${props => props.theme['base-button']};
 color: ${props => props.theme['purple']};
