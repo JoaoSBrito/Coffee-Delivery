@@ -14,6 +14,8 @@ interface LocationType {
   state: OrderData;
 }
 
+import confirmedOrderIllustration from "../../assets/orderConfirmed.png";
+
 export function OrderConfirmed() {
   const { state } = useLocation() as unknown as LocationType;
 
@@ -76,7 +78,7 @@ export function OrderConfirmed() {
             />
           </OrderDetailsContainer>
         </div>
-        <img src="src/assets/illustration.png" alt="" />
+        <img src={confirmedOrderIllustration} alt="" />
       </section>
     </OrderConfirmedContainer>
   );

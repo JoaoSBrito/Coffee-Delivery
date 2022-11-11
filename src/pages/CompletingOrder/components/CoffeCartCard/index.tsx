@@ -26,7 +26,7 @@ export function CoffeeCartCard({ id, amount }: CoffeeCartProps) {
   const { decreaseAmount, increaseAmount, removeFromCart } = useShoppingCart();
   return (
     <Infos>
-      <img src={item.coffeeImg} alt="" />
+      <img src={`/coffees/${item.coffeeImg}`} alt="" />
 
       <Details>
         <p>{item.title}</p>

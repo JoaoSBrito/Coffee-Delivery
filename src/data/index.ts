@@ -1,7 +1,7 @@
 export const coffees = [
   {
     id:1,
-    coffeeImg: 'src/assets/coffee/Tradicional.png',
+    coffeeImg: 'Tradicional.png',
     tag: ['Tradicional'],
     title: 'Expresso Tradicional',
     subtitle: 'O tradicional café feito com água quente e grãos moídos',
@@ -10,7 +10,7 @@ export const coffees = [
 
   {
     id:2,
-    coffeeImg: 'src/assets/coffee/Americano.png',
+    coffeeImg: 'Americano.png',
     tag: ['Tradicional'],
     title: 'Expresso Americano',
     subtitle: 'Expresso diluído, menos intenso que o tradicional',
@@ -19,7 +19,7 @@ export const coffees = [
 
   {
     id:3,
-    coffeeImg: 'src/assets/coffee/Cremoso.png',
+    coffeeImg: 'Cremoso.png',
     tag: ['Tradicional'],
     title: 'Expresso Cremoso',
     subtitle: 'Café expresso tradicional com espuma cremosa',
@@ -28,7 +28,7 @@ export const coffees = [
 
   {
     id:4,
-    coffeeImg: 'src/assets/coffee/Gelado.png',
+    coffeeImg: 'Gelado.png',
     tag: ['Tradicional', 'gelado'],
     title: 'Expresso Gelado',
     subtitle: 'Bebida preparada com café expresso e cubos de gelo ',
@@ -37,7 +37,7 @@ export const coffees = [
 
   {
     id:5,
-    coffeeImg: 'src/assets/coffee/CafeComLeite.png',
+    coffeeImg: 'CafeComLeite.png',
     tag: ['Tradicional', 'com leite'],
     title: 'Café com Leite',
     subtitle: 'Meio a meio de expresso tradicional com leite vaporizado',
@@ -46,7 +46,7 @@ export const coffees = [
 
   {
     id:6,
-    coffeeImg: 'src/assets/coffee/Latte.png',
+    coffeeImg: 'Latte.png',
     tag: ['Tradicional', 'com leite'],
     title: 'Latte',
     subtitle: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
@@ -55,7 +55,7 @@ export const coffees = [
 
   {
     id:7,
-    coffeeImg: 'src/assets/coffee/Capuccino.png',
+    coffeeImg: 'Capuccino.png',
     tag: ['Tradicional', 'com leite'],
     title: 'Capuccino',
     subtitle: 'Bebida com canela feita de doses iguais de café, leite e espuma',
@@ -64,7 +64,7 @@ export const coffees = [
 
   {
     id:8,
-    coffeeImg: 'src/assets/coffee/Macchiato.png',
+    coffeeImg: 'Macchiato.png',
     tag: ['Tradicional', 'com leite'],
     title: 'Macchiato',
     subtitle: 'Café expresso misturado com um pouco de leite quente e espuma',
@@ -73,7 +73,7 @@ export const coffees = [
 
   {
     id:9,
-    coffeeImg: 'src/assets/coffee/Mocaccino.png',
+    coffeeImg: 'Mocaccino.png',
     tag: ['Tradicional', 'com leite'],
     title: 'Mocaccino',
     subtitle: 'Café expresso com calda de chocolate, pouco leite e espuma',
@@ -82,7 +82,7 @@ export const coffees = [
 
   {
     id:10,
-    coffeeImg: 'src/assets/coffee/ChocolateQuente.png',
+    coffeeImg: 'ChocolateQuente.png',
     tag: ['Especial', 'com leite'],
     title: 'Chocolate Quente',
     subtitle: 'Bebida feita com chocolate dissolvido no leite quente e café',
@@ -91,7 +91,7 @@ export const coffees = [
 
   {
     id:11,
-    coffeeImg: 'src/assets/coffee/Cubano.png',
+    coffeeImg: 'Cubano.png',
     tag: ['Especial', 'alcoolico', 'gelado'],
     title: 'Cubano',
     subtitle: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
@@ -100,7 +100,7 @@ export const coffees = [
 
   {
     id:12,
-    coffeeImg: 'src/assets/coffee/Havaiano.png',
+    coffeeImg: 'Havaiano.png',
     tag: ['especial'],
     title: 'Havaiano',
     subtitle: 'Bebida adocicada preparada com café e leite de coco',
@@ -109,7 +109,7 @@ export const coffees = [
 
   {
     id:13,
-    coffeeImg: 'src/assets/coffee/Arabe.png',
+    coffeeImg: 'Arabe.png',
     tag: ['especial'],
     title: 'Árabe',
     subtitle: 'Bebida preparada com grãos de café árabe e especiarias',
@@ -118,7 +118,7 @@ export const coffees = [
 
   {
     id:14,
-    coffeeImg: 'src/assets/coffee/Irlandes.png',
+    coffeeImg: 'Irlandes.png',
     tag: ['Especial', 'alcoolico'],
     title: 'Irlandês',
     subtitle: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
