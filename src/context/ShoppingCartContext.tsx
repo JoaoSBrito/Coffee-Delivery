@@ -16,6 +16,10 @@ export type CartItem = {
   amount: number;
 };
 
+// interface CartItem extends Coffee {
+//   amount: number;
+// }
+
 type ShoppingCartContext = {
   getItemsAmount: (id: number) => number;
   increaseAmount: (id: number) => void;

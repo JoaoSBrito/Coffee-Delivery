@@ -1,12 +1,7 @@
 import { Minus, Plus, Trash } from "phosphor-react";
-import {
-  CartItem,
-  useShoppingCart,
-} from "../../../../../../context/ShoppingCartContext";
-import { coffees } from "../../../../../../data";
-
-import { Coffee } from "../../../../../Home/components/CoffeeCard";
-import { formatMoney } from "../../../../../Home/components/formatMoney";
+import { useShoppingCart } from "../../../../context/ShoppingCartContext";
+import { coffees } from "../../../../data";
+import { formatMoney } from "../../../Home/components/formatMoney";
 import {
   ButtonCounter,
   Counter,
@@ -22,7 +17,7 @@ interface CoffeeCartProps {
   amount: number;
 }
 
-export function ProductsDetails({ id, amount }: CoffeeCartProps) {
+export function CoffeeCartCard({ id, amount }: CoffeeCartProps) {
   const item = coffees.find((i) => i.id === id);
   if (item == null) return null;
 
