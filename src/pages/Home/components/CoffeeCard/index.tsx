@@ -26,7 +26,7 @@ export interface Coffee {
   title: string;
   subtitle: string;
   price: number;
-  amount: number;
+  // amount: number;
 }
 
 export interface cartItems extends Coffee {
